@@ -6,7 +6,7 @@
 
 
 
-- [Demo Project](https://mmehrab-pz.github.io/project-16/)
+- [Demo Project](https://mmehrab-pz.github.io/Parsa-Legacy/)
 - Developed by mehrab poorzakaria
 - Created - 2025 9 May
 - 🤖 Technologies Used - Html , css , scss , JS
