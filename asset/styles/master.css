@@ -1,290 +1,145 @@
-@keyframes box2 {
+@keyframes ship1 {
   0% {
-    height: 80%;
+    left: -100px;
   }
   100% {
-    height: 90%;
+    left: 110%;
   }
 }
-@keyframes box6 {
+@keyframes ship2 {
   0% {
-    top: 70%;
-  }
-  50% {
-    top: 64%;
+    right: -100px;
   }
   100% {
-    top: 60%;
+    right: 110%;
   }
 }
-@keyframes box13 {
+@keyframes parsaload {
   0% {
-    transform: translateY(50px);
+    transform: translateY(-45px);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(0px);
+  60% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-15px);
+  }
+  90% {
+    transform: translateY(0);
   }
   100% {
-    transform: translateY(-50px);
-  }
-}
-@keyframes box17 {
-  0% {
-    transform: translateX(50px);
-  }
-  50% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-50px);
-  }
-}
-@keyframes box24 {
-  0% {
-    transform: translateX(60px);
-  }
-  50% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-60px);
-  }
-}
-@keyframes box29 {
-  0% {
-    transform: translateX(50px);
-  }
-  50% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-50px);
-  }
-}
-@keyframes box30 {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-70px);
+    transform: translateY(0);
   }
 }
 main {
   width: 100%;
   height: 100vh;
-  background-color: rgb(155, 155, 155);
-  /* background-image: url(Maze_simple.svg); */
+  background-image: url(../img/bg3.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ship1 {
+  position: fixed;
+  top: 10%;
+  width: 50px;
+  transform: rotate(90deg);
+  animation: ship1 10s linear infinite;
+}
+
+#ship2 {
+  position: fixed;
+  bottom: 10%;
+  width: 50px;
+  transform: rotate(-90deg);
+  animation: ship2 8s linear infinite;
+}
+
+#start-frame {
+  width: 1000px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/frame1.png);
   background-size: cover;
   background-position: center;
   position: relative;
-  /* -------------------------amodi--------------------- */
-  /* -------------------------ofoghi--------------------- */
 }
-main #parsa {
-  width: 50px;
+#start-frame > button {
+  width: 200px;
   height: 50px;
-  background-color: red;
+  border: none;
+  background: #922a9b;
+  background: linear-gradient(90deg, rgb(146, 42, 155) 0%, rgb(143, 87, 199) 50%, rgb(237, 83, 83) 100%);
+  color: white;
+  font-family: "kamva";
+  font-size: 30px;
+  border-radius: 50px;
+}
+#start-frame span {
+  width: 76%;
+  display: flex;
+  height: 45%;
+  background-color: rgba(0, 0, 0, 0.37);
+  position: absolute;
+  opacity: 0;
+  transition: 1s ease-in-out;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+#start-frame > p {
+  color: white;
+  width: 70%;
+  font-family: "kamva";
+  font-size: 30px;
+  text-align: right;
+  direction: rtl;
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+
+#startGame {
+  width: 200px;
+  height: 50px;
+  border: none;
+  padding-top: 7px;
+  background: #922a9b;
+  background: linear-gradient(90deg, rgb(146, 42, 155) 0%, rgb(143, 87, 199) 50%, rgb(237, 83, 83) 100%);
+  color: white;
+  font-family: "kamva";
+  font-size: 30px;
+  border-radius: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 30px;
-  left: 165px;
+  bottom: 10%;
 }
-main #finish {
-  width: 152px;
-  height: 40px;
-  background-color: green;
-  position: fixed;
-  bottom: 33px;
-  right: 75px;
+
+#Loading {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.548);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
 }
-main > div {
-  position: fixed;
-  background-color: rgb(255, 255, 255);
-  transition: linear;
+#Loading > img {
+  animation: parsaload 2s ease infinite forwards;
 }
-main #box1 {
-  width: 40px;
-  height: 90%;
-  top: 30px;
-  left: 80px;
-}
-main #box2 {
-  width: 40px;
-  height: 80%;
-  top: 30px;
-  left: 31%;
-  animation: box2 3s linear alternate infinite;
-}
-main #box3 {
-  width: 40px;
-  height: 17%;
-  top: 44%;
-  left: 22%;
-}
-main #box4 {
-  width: 40px;
-  height: 23%;
-  top: 20%;
-  left: 14%;
-}
-main #box5 {
-  width: 40px;
-  height: 22%;
-  top: 40%;
-  left: 40%;
-}
-main #box6 {
-  width: 40px;
-  height: 26%;
-  top: 64%;
-  left: 40%;
-  animation: box6 4s linear alternate infinite;
-}
-main #box7 {
-  width: 40px;
-  height: 26%;
-  top: 58%;
-  left: 49%;
-}
-main #box8 {
-  width: 40px;
-  height: 26%;
-  top: 14%;
-  left: 49%;
-}
-main #box9 {
-  width: 40px;
-  height: 28%;
-  top: 4%;
-  left: 58%;
-}
-main #box10 {
-  width: 40px;
-  height: 28%;
-  top: 40%;
-  left: 58%;
-}
-main #box11 {
-  width: 40px;
-  height: 26%;
-  top: 76%;
-  left: 58%;
-}
-main #box12 {
-  width: 40px;
-  height: 26%;
-  top: 57%;
-  left: 68%;
-}
-main #box13 {
-  width: 40px;
-  height: 32%;
-  top: 14%;
-  left: 68%;
-  animation: box13 2s linear alternate infinite;
-}
-main #box14 {
-  width: 40px;
-  height: 55%;
-  top: 14%;
-  left: 76%;
-}
-main #box15 {
-  width: 40px;
-  height: 31%;
-  top: 34%;
-  left: 85%;
-}
-main #box16 {
-  width: 40px;
-  height: 91%;
-  top: 1%;
-  left: 94%;
-}
-main #box17 {
-  height: 40px;
-  width: 34%;
-  top: 40%;
-  left: 11%;
-  animation: box17 2s linear infinite alternate;
-}
-main #box18 {
-  height: 40px;
-  width: 10%;
-  top: 20%;
-  left: 14%;
-}
-main #box19 {
-  height: 40px;
-  width: 10%;
-  top: 59%;
-  left: 6%;
-}
-main #box20 {
-  height: 40px;
-  width: 17%;
-  top: 73%;
-  left: 15%;
-}
-main #box21 {
-  height: 40px;
-  width: 84%;
-  top: 92%;
-  left: calc(4% + 3px);
-}
-main #box22 {
-  height: 40px;
-  width: 81%;
-  top: 1%;
-  left: 13%;
-}
-main #box23 {
-  height: 40px;
-  width: 17%;
-  top: 58%;
-  left: 27%;
-}
-main #box24 {
-  height: 40px;
-  width: 15%;
-  top: 20%;
-  left: 40%;
-  animation: box24 1.5s linear infinite alternate;
-}
-main #box25 {
-  height: 40px;
-  width: 13%;
-  top: 40%;
-  left: 49%;
-}
-main #box26 {
-  height: 40px;
-  width: 18%;
-  top: 76%;
-  left: 51%;
-}
-main #box27 {
-  height: 40px;
-  width: 20%;
-  top: 59%;
-  left: 59%;
-}
-main #box28 {
-  height: 40px;
-  width: 20%;
-  top: 20%;
-  left: 68%;
-}
-main #box29 {
-  height: 40px;
-  width: 14%;
-  top: 40%;
-  left: 79%;
-  animation: box29 3s linear alternate infinite;
-}
-main #box30 {
-  height: 40px;
-  width: 19%;
-  top: 78%;
-  left: 77%;
-  animation: box30 1s linear alternate infinite;
+#Loading p {
+  color: white;
+  font-family: "kamva";
+  font-size: 20px;
+  margin-top: 20px;
 }/*# sourceMappingURL=master.css.map */

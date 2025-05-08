@@ -1,342 +1,199 @@
-@keyframes box2 {
+// ---------------------------------animations-----------------------------------------------
+@keyframes ship1 {
     0% {
-        height: 80%;
+        left: -100px;
     }
 
     100% {
-        height: 90%;
+        left: 110%;
     }
 }
 
-@keyframes box6 {
+@keyframes ship2 {
     0% {
-        top: 70%;
-    }
-
-    50% {
-        top: 64%;
+        right: -100px;
     }
 
     100% {
-        top: 60%;
+        right: 110%;
     }
 }
 
-@keyframes box13 {
-    0% {
-        transform: translateY(50px);
-    }
+// @keyframes paraload {
+// 	0% {
+// 		animation-timing-function: ease-in;
+// 		opacity: 1;
+// 		transform: translateY(-45px);
+// 	}
 
-    50% {
-        transform: translateY(0px);
-    }
+// 	24% {
+// 		opacity: 1;
+// 	}
 
-    100% {
-        transform: translateY(-50px);
-    }
-}
+// 	40% {
+// 		animation-timing-function: ease-in;
+// 		transform: translateY(-24px);
+// 	}
 
-@keyframes box17 {
-    0% {
-        transform: translateX(50px);
-    }
+// 	65% {
+// 		animation-timing-function: ease-in;
+// 		transform: translateY(-12px);
+// 	}
 
-    50% {
-        transform: translateX(0px);
-    }
+// 	82% {
+// 		animation-timing-function: ease-in;
+// 		transform: translateY(-6px);
+// 	}
 
-    100% {
-        transform: translateX(-50px);
-    }
-}
+// 	93% {
+// 		animation-timing-function: ease-in;
+// 		transform: translateY(-4px);
+// 	}
 
-@keyframes box24 {
-    0% {
-        transform: translateX(60px);
-    }
+// 	25%,
+// 	55%,
+// 	75%,
+//     87% {
+// 		animation-timing-function: ease-out;
+// 		transform: translateY(0px);
+// 	}
 
-    50% {
-        transform: translateX(0px);
-    }
+// 	100% {
+// 		animation-timing-function: ease-out;
+// 		opacity: 1;
+// 		transform: translateY(0px);
+// 	}
+// }
 
-    100% {
-        transform: translateX(-60px);
-    }
-}
+@keyframes parsaload {
+    0%   { transform: translateY(-45px); opacity: 0; }
+    60%  { transform: translateY(0);     opacity: 1; }
+    75%  { transform: translateY(-15px); }
+    90%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+  }
 
-@keyframes box29 {
-    0% {
-        transform: translateX(50px);
-    }
-
-    50% {
-        transform: translateX(0px);
-    }
-
-    100% {
-        transform: translateX(-50px);
-    }
-}
-
-@keyframes box30 {
-    0% {
-        transform: translateX(0px);
-    }
-
-    100% {
-        transform: translateX(-70px);
-    }
-}
-
+// -------------------------------------------------------------------------------
 main {
     width: 100%;
     height: 100vh;
-    background-color: rgb(155, 155, 155);
-    /* background-image: url(Maze_simple.svg); */
+    background-image: url(../img/bg3.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+// ---------------------------------ships-----------------------------
+#ship1 {
+    position: fixed;
+    top: 10%;
+    width: 50px;
+    transform: rotate(90deg);
+    animation: ship1 10s linear infinite;
+}
+
+#ship2 {
+    position: fixed;
+    bottom: 10%;
+    width: 50px;
+    transform: rotate(-90deg);
+    animation: ship2 8s linear infinite;
+}
+
+// ---------------------------------start farame-----------------------------
+
+#start-frame {
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/frame1.png);
     background-size: cover;
     background-position: center;
     position: relative;
 
-    #parsa {
-        width: 50px;
+    >button {
+        width: 200px;
         height: 50px;
-        background-color: red;
-        position: fixed;
-        top: 30px;
-        left: 165px;
+        border: none;
+        background: #922a9b;
+        background: linear-gradient(90deg, rgba(146, 42, 155, 1) 0%, rgba(143, 87, 199, 1) 50%, rgba(237, 83, 83, 1) 100%);
+        ;
+        color: white;
+        font-family: 'kamva';
+        font-size: 30px;
+        border-radius: 50px;
+
     }
 
-    #finish {
-        width: 152px;
-        height: 40px;
-        background-color: green;
-        position: fixed;
-        bottom: 33px;
-        right: 75px;
+    span {
+        width: 76%;
+        display: flex;
+        height: 45%;
+        background-color: rgba(0, 0, 0, 0.37);
+        position: absolute;
+        opacity: 0;
+        transition: 1s ease-in-out;
+        transform: scaleY(0);
+        transform-origin: top;
+
     }
 
-    >div {
-        position: fixed;
-        background-color: rgb(255, 255, 255);
-        transition: linear;
+    >p {
+        color: white;
+        width: 70%;
+        font-family: 'kamva';
+        font-size: 30px;
+        text-align: right;
+        direction: rtl;
+        display: none;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+#startGame {
+    width: 200px;
+    height: 50px;
+    border: none;
+    padding-top: 7px;
+    background: #922a9b;
+    background: linear-gradient(90deg, rgba(146, 42, 155, 1) 0%, rgba(143, 87, 199, 1) 50%, rgba(237, 83, 83, 1) 100%);
+    ;
+    color: white;
+    font-family: 'kamva';
+    font-size: 30px;
+    border-radius: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10%;
+}
+// ---------------------------------start farame-----------------------------
+#Loading{
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.548);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    
+    >img{
+        animation: parsaload 2s ease infinite forwards;
     }
 
-    /* -------------------------amodi--------------------- */
-    #box1 {
-        width: 40px;
-        height: 90%;
-        top: 30px;
-        left: 80px;
-    }
-
-    #box2 {
-        width: 40px;
-        height: 80%;
-        top: 30px;
-        left: 31%;
-        animation: box2 3s linear alternate infinite;
-    }
-
-    #box3 {
-        width: 40px;
-        height: 17%;
-        top: 44%;
-        left: 22%;
-    }
-
-    #box4 {
-        width: 40px;
-        height: 23%;
-        top: 20%;
-        left: 14%;
-    }
-
-    #box5 {
-        width: 40px;
-        height: 22%;
-        top: 40%;
-        left: 40%;
-    }
-
-    #box6 {
-        width: 40px;
-        height: 26%;
-        top: 64%;
-        left: 40%;
-        animation: box6 4s linear alternate infinite;
-    }
-
-    #box7 {
-        width: 40px;
-        height: 26%;
-        top: 58%;
-        left: 49%;
-    }
-
-    #box8 {
-        width: 40px;
-        height: 26%;
-        top: 14%;
-        left: 49%;
-    }
-
-    #box9 {
-        width: 40px;
-        height: 28%;
-        top: 4%;
-        left: 58%;
-    }
-
-    #box10 {
-        width: 40px;
-        height: 28%;
-        top: 40%;
-        left: 58%;
-    }
-
-    #box11 {
-        width: 40px;
-        height: 26%;
-        top: 76%;
-        left: 58%;
-    }
-
-    #box12 {
-        width: 40px;
-        height: 26%;
-        top: 57%;
-        left: 68%;
-    }
-
-    #box13 {
-        width: 40px;
-        height: 32%;
-        top: 14%;
-        left: 68%;
-        animation: box13 2s linear alternate infinite;
-    }
-
-    #box14 {
-        width: 40px;
-        height: 55%;
-        top: 14%;
-        left: 76%;
-    }
-
-    #box15 {
-        width: 40px;
-        height: 31%;
-        top: 34%;
-        left: 85%;
-    }
-
-    #box16 {
-        width: 40px;
-        height: 91%;
-        top: 1%;
-        left: 94%;
-    }
-
-    /* -------------------------ofoghi--------------------- */
-    #box17 {
-        height: 40px;
-        width: 34%;
-        top: 40%;
-        left: 11%;
-        animation: box17 2s linear infinite alternate;
-    }
-
-    #box18 {
-        height: 40px;
-        width: 10%;
-        top: 20%;
-        left: 14%;
-    }
-
-    #box19 {
-        height: 40px;
-        width: 10%;
-        top: 59%;
-        left: 6%;
-    }
-
-    #box20 {
-        height: 40px;
-        width: 17%;
-        top: 73%;
-        left: 15%;
-    }
-
-    #box21 {
-        height: 40px;
-        width: 84%;
-        top: 92%;
-        left: calc(4% + 3px);
-    }
-
-    #box22 {
-        height: 40px;
-        width: 81%;
-        top: 1%;
-        left: 13%;
-    }
-
-    #box23 {
-        height: 40px;
-        width: 17%;
-        top: 58%;
-        left: 27%;
-    }
-
-    #box24 {
-        height: 40px;
-        width: 15%;
-        top: 20%;
-        left: 40%;
-        animation: box24 1.5s linear infinite alternate;
-    }
-
-    #box25 {
-        height: 40px;
-        width: 13%;
-        top: 40%;
-        left: 49%;
-    }
-
-    #box26 {
-        height: 40px;
-        width: 18%;
-        top: 76%;
-        left: 51%;
-    }
-
-    #box27 {
-        height: 40px;
-        width: 20%;
-        top: 59%;
-        left: 59%;
-    }
-
-    #box28 {
-        height: 40px;
-        width: 20%;
-        top: 20%;
-        left: 68%;
-    }
-
-    #box29 {
-        height: 40px;
-        width: 14%;
-        top: 40%;
-        left: 79%;
-        animation: box29 3s linear alternate infinite;
-    }
-
-    #box30 {
-        height: 40px;
-        width: 19%;
-        top: 78%;
-        left: 77%;
-        animation: box30 1s linear alternate infinite;
+    p{
+        color: white;
+        font-family: 'kamva';
+        font-size: 20px;
+        margin-top: 20px;
     }
 }

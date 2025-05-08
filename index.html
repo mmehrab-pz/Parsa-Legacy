@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fn">
 
 <head>
     <meta charset="UTF-8">
@@ -12,45 +12,30 @@
     <link rel="stylesheet" href="asset/styles/normalize.css">
     <link rel="stylesheet" href="asset/styles/master.css">
     <link rel="stylesheet" href="asset/styles/local.css">
-    <title>Document</title>
+    <link rel="icon" href="asset/img/head.png" sizes="16x16" type="image/png">
+    <title>save the parsa</title>
 </head>
 
 <body>
+    <audio id="music" src="asset/music/fight-for-the-future-336841.mp3" autoplay loop></audio>
+    <audio id="readySound" src="asset/music/beep-6-96243-[AudioTrimmer.com].mp3"></audio>
+    <img id="ship1" src="asset/img/ship1.png" alt="">
+    <img id="ship2" src="asset/img/ship2.png" alt="">
     <main>
-        <section id="parsa"></section>
-
-        <div class="enemy" id="box1"></div>
-        <div class="enemy" id="box2"></div>
-        <div class="enemy" id="box3"></div>
-        <div class="enemy" id="box4"></div>
-        <div class="enemy" id="box5"></div>
-        <div class="enemy" id="box6"></div>
-        <div class="enemy" id="box7"></div>
-        <div class="enemy" id="box8"></div>
-        <div class="enemy" id="box9"></div>
-        <div class="enemy" id="box10"></div>
-        <div class="enemy" id="box11"></div>
-        <div class="enemy" id="box12"></div>
-        <div class="enemy" id="box13"></div>
-        <div class="enemy" id="box14"></div>
-        <div class="enemy" id="box15"></div>
-        <div class="enemy" id="box16"></div>
-        <div class="enemy" id="box17"></div>
-        <div class="enemy" id="box18"></div>
-        <div class="enemy" id="box19"></div>
-        <div class="enemy" id="box20"></div>
-        <div class="enemy" id="box21"></div>
-        <div class="enemy" id="box22"></div>
-        <div class="enemy" id="box23"></div>
-        <div class="enemy" id="box24"></div>
-        <div class="enemy" id="box25"></div>
-        <div class="enemy" id="box26"></div>
-        <div class="enemy" id="box27"></div>
-        <div class="enemy" id="box28"></div>
-        <div class="enemy" id="box29"></div>
-        <div class="enemy" id="box30"></div>
-
-        <section id="finish"></section>
+        <div id="start-frame">
+            <span id="textBack"></span>
+            <p id="mission"></p>
+            <button id="start-btn">شروع</button>
+        </div>
+        <button id="startGame">
+            آماده ای؟
+        </button>
+        <div id="Loading">
+            <img src="asset/img/head.png" alt="">
+            <p>
+                ... در حال آماده سازی
+            </p>
+        </div>
     </main>
 </body>
 <script src="asset/js/script5.js"></script>

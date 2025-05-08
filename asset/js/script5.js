@@ -1,3 +1,68 @@
+// ----------------------------start----------------------------
+let startBtn = document.getElementById('start-btn')
+let music = document.getElementById('music')
+let mission = document.getElementById('mission')
+let textBack = document.getElementById('textBack')
+let startGame = document.getElementById('startGame')
+let readySound = document.getElementById('readySound')
+let loadingBox = document.getElementById('loading')
+const missionText = 'پارسا قربانیان، قاتل کدهای سرگردان کهکشان راه شیری، کسی‌ست که سیارات جاوااسکریپت و ری‌اکت را به‌همراه فرزندان معنوی‌اش فتح کرده است. در آخرین مأموریتش، در حالی که در تلاش برای فتح قله‌های هوش مصنوعی بود، ارتباطش را با سپاهیان خود از دست داد. اکنون او اسیر ربات‌های خون‌خوار کهکشان شده و در هزارتویی تاریک و عمیق زندانی‌ست. قهرمان قصه‌ی ما به کمک شما نیاز دارد تا از چنگال‌های آغشته به خونِ این ربات‌ها فرار کند. پارسا را نجات دهید تا عنوان قهرمان جدید کهکشان را از آنِ خود کنید.'
+const word = missionText.split(' ')
+let i = 0
+startBtn.addEventListener('click' , ()=>{
+    music.play()
+    startBtn.style.display = 'none'
+    textBack.style.opacity = '1'
+    textBack.style.transform = 'scaleY(1)'
+    typeWord()
+})
+function typeWord(){
+    mission.style.display = 'inline-block'
+    if(i < word.length){
+        mission.innerHTML += word[i] + ' ';
+        i++;
+        setTimeout(typeWord, 150); // سرعت تایپ کلمه‌ها
+    }else{
+        startGame.style.display = 'flex'
+    }
+}
+
+startGame.addEventListener('click' , ()=>{
+    readySound.play()
+    document.getElementById('start-frame').remove()
+    startGame.remove()
+    loadingBox.style.display = 'flex'
+    loading()
+})
+
+function loading(){
+    setTimeout(() => {
+        loadingBox.remove()
+        document.getElementById('ship1').remove()
+        document.getElementById('ship2').remove()
+    }, 4000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------game----------------------------
 let parsa = document.getElementById('parsa')
 let enemies = document.querySelectorAll(".enemy")
 let finish = document.getElementById('finish')
