@@ -122,11 +122,6 @@ document.addEventListener('keypress', (e) => {
             ghost.play()
             parsa.style.display = 'none'
             deadPopup.style.display = 'flex'
-
-            // parsa.style.left = `165px`
-            // parsa.style.top = `30px`
-            // _top = 30
-            // _left = 165
         }
     }
 
