@@ -207,6 +207,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
 }
 
@@ -297,8 +298,8 @@ main {
     display: none;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 10%;
+    position: absolute;
+    bottom: 189px;
     // ---------------
 
 
