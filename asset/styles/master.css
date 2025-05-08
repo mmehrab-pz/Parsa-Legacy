@@ -123,7 +123,7 @@ main {
   bottom: 10%;
 }
 
-#Loading {
+#loading {
   width: 500px;
   height: 500px;
   border-radius: 10px;
@@ -134,10 +134,10 @@ main {
   flex-direction: column;
   display: none;
 }
-#Loading > img {
+#loading > img {
   animation: parsaload 2s ease infinite forwards;
 }
-#Loading p {
+#loading p {
   color: white;
   font-family: "kamva";
   font-size: 20px;
