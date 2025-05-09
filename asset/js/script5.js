@@ -19,6 +19,8 @@ let loadingBox = document.getElementById('loading')
 const missionText = 'پارسا قربانیان، قاتل کدهای سرگردان کهکشان راه شیری، کسی‌ست که سیارات جاوااسکریپت و ری‌اکت را به‌همراه فرزندان معنوی‌اش فتح کرده است. در آخرین مأموریتش، در حالی که در تلاش برای فتح قله‌های هوش مصنوعی بود، ارتباطش را با سپاهیان خود از دست داد. اکنون او اسیر ربات‌های خون‌خوار کهکشان شده و در هزارتویی تاریک و عمیق زندانی‌ست. قهرمان قصه‌ی ما به کمک شما نیاز دارد تا از چنگال‌های آغشته به خونِ این ربات‌ها فرار کند. پارسا را نجات دهید تا عنوان قهرمان جدید کهکشان را از آنِ خود کنید.'
 const word = missionText.split(' ')
 let i = 0
+let d = 0
+
 
 startBtn.addEventListener('click', () => {
     music.play()
@@ -55,11 +57,13 @@ function loading() {
         document.getElementById('ship2').remove()
         gameSection.style.display = 'inline-block'
         whoosh.play()
+        enableParsaMovment()
     }, 6000);
     setTimeout(() => {
         GameMusic.play()
     }, 8000)
 }
+
 // ----------------------------game----------------------------
 let parsa = document.getElementById('parsa')
 let enemies = document.querySelectorAll(".enemy")
@@ -97,51 +101,53 @@ function checkfinish(c, d) {
     );
 }
 
-document.addEventListener('keypress', (e) => {
-    let keyword = e.key
-    console.log(keyword);
+function enableParsaMovment() {
+    document.addEventListener('keypress', (e) => {
+        let keyword = e.key
+        console.log(keyword);
 
-    switch (keyword) {
-        case 'd':
-            _left += 12
-            break;
-        case 'a':
-            _left -= 12
-            break;
-        case 'w':
-            _top -= 12
-            break;
-        case 's':
-            _top += 12
-            break;
-    }
-
-    for (let enemy of enemies) {
-        if (CheckCollision(parsa, enemy)) {
-            GameMusic.pause()
-            ghost.play()
-            parsa.style.display = 'none'
-            deadPopup.style.display = 'flex'
+        switch (keyword) {
+            case 'd':
+                _left += 12
+                break;
+            case 'a':
+                _left -= 12
+                break;
+            case 'w':
+                _top -= 12
+                break;
+            case 's':
+                _top += 12
+                break;
         }
-    }
 
-    if (checkfinish(parsa, finish)) {
-        GameMusic.pause()
-        parsa.remove()
-        finish.classList.add('run')
-        setTimeout(()=>{
-            shipSound.play()
-        }, 2200)
-        setTimeout(() => {
-            finish.remove()
-            victory.style.display = 'flex'
-            happySound.play()
-        }, 5000)
-    }
+        for (let enemy of enemies) {
+            if (CheckCollision(parsa, enemy)) {
+                GameMusic.pause()
+                ghost.play()
+                parsa.style.display = 'none'
+                deadPopup.style.display = 'flex'
+            }
+        }
 
-    parsa.style.left = `${_left}px`
-    parsa.style.top = `${_top}px`
-})
+        if (checkfinish(parsa, finish)) {
+            GameMusic.pause()
+            parsa.remove()
+            finish.classList.add('run')
+            setTimeout(() => {
+                shipSound.play()
+            }, 2200)
+            setTimeout(() => {
+                finish.remove()
+                victory.style.display = 'flex'
+                happySound.play()
+            }, 5000)
+        }
+
+        parsa.style.left = `${_left}px`
+        parsa.style.top = `${_top}px`
+    })
+}
 
 
 document.getElementById('again').addEventListener('click', () => {
